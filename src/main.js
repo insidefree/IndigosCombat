@@ -20,8 +20,11 @@ class Game extends Phaser.Game {
     this.state.add('Splash', SplashState, false)
     this.state.add('Game', GameState, false)
 
+    // my examples
+
     this.state.start('Boot')
   }
 }
 
-window.game = new Game()
+// window.game = new Game()
+window.onload = () => new Game()
