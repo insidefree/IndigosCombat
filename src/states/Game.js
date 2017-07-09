@@ -2,13 +2,13 @@
 import Phaser from 'phaser'
 import Mushroom from '../sprites/Mushroom'
 import Background from '../sprites/Background'
-
+import Girl from '../sprites/Girl'
 
 export default class extends Phaser.State {
-  init () {}
-  preload () {}
+  init() { }
+  preload() { }
 
-  create () {
+  create() {
     const bannerText = 'Indigos fight'
     let banner = this.add.text(this.world.centerX, 50, bannerText)
     banner.font = 'Bangers'
@@ -31,12 +31,29 @@ export default class extends Phaser.State {
       y: this.world.centerY,
       asset: 'background'
     })
-    
+
+    this.girl = new Girl({
+      game: this,
+      x: this.world.centerX + 100,
+      y: this.world.centerY + 100,
+      asset: 'girl',
+      count: 43
+    })
+    //  var girl
     this.game.add.existing(this.background)
     this.game.add.existing(this.mushroom)
+    this.game.add.existing(this.girl)
+
+    // girl = this.game.add.sprite(100, 100, 'girl', 43)
+    var anim = this.girl.animations.add('walk');
+
+    
+
+    anim.play(10, true);
+    // this.game.add.existing(this.girl.animations.add('animate', [0,1,2,3,4,5,6]))
   }
 
-  render () {
+  render() {
     if (__DEV__) {
       // this.game.debug.spriteInfo(this.mushroom, 32, 32)
     }
