@@ -43,7 +43,6 @@ export default class extends Phaser.State {
     this.game.add.existing(this.mushroom)
     this.game.add.existing(this.girl)
     setTimeout(() => this.girl.run(), 2000)
-    // this.girl.run()
   }
 
   render() {
