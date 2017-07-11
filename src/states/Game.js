@@ -1,8 +1,8 @@
 /* globals __DEV__ */
 import Phaser from 'phaser'
-import Mushroom from '../sprites/Mushroom'
-import Background from '../sprites/Background'
-import Girl from '../sprites/Girl'
+import Mushroom from '../prefabs/Mushroom'
+import Background from '../prefabs/Background'
+import Girl from '../prefabs/Girl'
 
 export default class extends Phaser.State {
   init() { }
@@ -19,38 +19,29 @@ export default class extends Phaser.State {
     banner.anchor.setTo(0.5)
 
     this.mushroom = new Mushroom({
-      game: this,
+      game: this.game,
       x: this.world.centerX,
       y: this.world.centerY,
       asset: 'mushroom'
     })
 
     this.background = new Background({
-      game: this,
+      game: this.game,
       x: this.world.centerX,
       y: this.world.centerY,
       asset: 'background'
     })
 
     this.girl = new Girl({
-      game: this,
+      game: this.game,
       x: this.world.centerX + 100,
       y: this.world.centerY + 100,
-      asset: 'girl',
-      count: 43
+      asset: 'girl'
     })
-    //  var girl
+
     this.game.add.existing(this.background)
     this.game.add.existing(this.mushroom)
     this.game.add.existing(this.girl)
-
-    // girl = this.game.add.sprite(100, 100, 'girl', 43)
-    var anim = this.girl.animations.add('walk');
-
-    
-
-    anim.play(10, true);
-    // this.game.add.existing(this.girl.animations.add('animate', [0,1,2,3,4,5,6]))
   }
 
   render() {
