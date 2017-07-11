@@ -34,7 +34,7 @@ export default class extends Phaser.State {
 
     this.girl = new Girl({
       game: this.game,
-      x: this.world.centerX + 100,
+      x: this.world.centerX - 400,
       y: this.world.centerY + 100,
       asset: 'girl'
     })
@@ -42,6 +42,8 @@ export default class extends Phaser.State {
     this.game.add.existing(this.background)
     this.game.add.existing(this.mushroom)
     this.game.add.existing(this.girl)
+    setTimeout(() => this.girl.run(), 2000)
+    // this.girl.run()
   }
 
   render() {
