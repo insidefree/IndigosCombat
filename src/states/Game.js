@@ -18,6 +18,11 @@ export default class extends Phaser.State {
     banner.smoothed = false
     banner.anchor.setTo(0.5)
 
+    // scaling for responsive
+    this.game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+    this.game.scale.pageAlignHorizontally = true;
+    this.game.scale.pageAlignVertically = true;
+
     this.mushroom = new Mushroom({
       game: this.game,
       x: this.world.centerX,
@@ -43,6 +48,7 @@ export default class extends Phaser.State {
     this.game.add.existing(this.mushroom)
     this.game.add.existing(this.girl)
     setTimeout(() => this.girl.run(), 2000)
+    setTimeout(() => this.girl.flipp(), 1000)
   }
 
   render() {

@@ -3,6 +3,8 @@
 export default class extends Phaser.Sprite {
     constructor({ game, x, y, asset }) {
         super(game, x, y, asset)
+        this.scale.setTo(.5)
+        this.animations.add('run_girl')
     }
 
     run() {
@@ -15,4 +17,13 @@ export default class extends Phaser.Sprite {
             this.x = -100;
         }
     }
+
+    flipp() {
+        this.scale.setTo(-0.5)
+    }
+
+    rotate() {
+        this.angle += 45
+    }
+
 }
